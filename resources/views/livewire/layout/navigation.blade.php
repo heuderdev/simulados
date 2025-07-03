@@ -22,18 +22,25 @@ new class () extends Component {
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" wire:navigate>
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-100" />
+                    <a class="flex gap-4 justify-items-center items-center" href="{{ route('admin.dashboard') }}" wire:navigate>
+                        <x-svg class="fill-current text-complementar-agua h-12" nome="logo" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
+                <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('exam.category.form')" :active="request()->routeIs('exam.category.form')"
+                        wire:navigate>
+                        {{ __('Categoria de Exames') }}
                     </x-nav-link>
-
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('learning.module.form')"
+                        :active="request()->routeIs('learning.module.form')" wire:navigate>
+                        {{ __('Módulo de Aprendizagem') }}
+                    </x-nav-link>
+                </div> -->
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -41,7 +48,7 @@ new class () extends Component {
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-base-200 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-complementar-agua bg-base-200 hover:text-complementar-agua/60 focus:outline-none transition ease-in-out duration-150">
                             <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name"
                                 x-on:profile-updated.window="name = $event.detail.name"></div>
 
@@ -52,6 +59,7 @@ new class () extends Component {
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
+
                             </div>
                         </button>
                     </x-slot>

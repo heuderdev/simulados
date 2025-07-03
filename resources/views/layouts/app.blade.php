@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="cupcake">
+<html  lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="cupcake">
 
 <head>
     <meta charset="utf-8">
@@ -15,8 +15,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     @livewireStyles
     <!-- Scripts -->
-    @vite(['resources/css/app.css'])
-
+    @vite(['resources/css/app.css','resources/js/app.js'])
     {{-- EasyMDE --}}
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
 
@@ -31,16 +30,10 @@
         </main>
     </div>
     @livewireScripts
-    @vite(['resources/js/app.js'])
+    
 
     <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
-    <script>
-        // Persistir preferência do tema no localStorage
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+    @stack('scripts')
     </script>
 </body>
 
