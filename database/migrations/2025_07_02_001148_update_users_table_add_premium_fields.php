@@ -10,7 +10,7 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->boolean('has_premium_access')->default(false);
             $table->dateTime('premium_expires_at')->nullable();
         });
@@ -21,7 +21,7 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->boolean('has_premium_access')->default(false);
             $table->dateTime('premium_expires_at')->nullable();
         });

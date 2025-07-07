@@ -10,7 +10,7 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('video_lessons', function (Blueprint $table) {
+        Schema::create('video_lessons', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('question_id')->constrained()->cascadeOnDelete();
             $table->string('title');

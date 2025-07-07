@@ -9,7 +9,7 @@ class AdministrativoGeral extends Component
 {
     public $menus = [];
 
-    public function mount()
+    public function mount(): void
     {
         $this->menus = MenuService::itens();
     }

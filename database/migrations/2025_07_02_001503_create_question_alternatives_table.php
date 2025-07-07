@@ -10,7 +10,7 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('question_alternatives', function (Blueprint $table) {
+        Schema::create('question_alternatives', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('question_id')->constrained()->cascadeOnDelete();
             $table->text('alternative_text');

@@ -10,7 +10,7 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('certifications', function (Blueprint $table) {
+        Schema::create('certifications', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('exam_category_id')->constrained()->onDelete('cascade');
             $table->string('name'); // 'CPA-20', 'ITIL Foundation', 'CPA-10'

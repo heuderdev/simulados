@@ -43,8 +43,8 @@ class ExamCategoryModelService
         $query = ExamCategory::query();
 
         // Aplicar busca se fornecida
-        if (!empty($search)) {
-            $query->where(function ($q) use ($search) {
+        if ($search !== '' && $search !== '0') {
+            $query->where(function ($q) use ($search): void {
                 $q->where('name', 'like', '%' . $search . '%');
                   // ->orWhere('description', 'like', '%' . $search . '%')
                   // ->orWhere('slug', 'like', '%' . $search . '%');

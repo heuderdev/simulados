@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('exam_templates', function (Blueprint $table) {
+        Schema::table('exam_templates', function (Blueprint $table): void {
             $table->foreignId('certification_id')->after('id')->constrained()->onDelete('cascade');
             $table->integer('duration_minutes')->default(120); // Tempo de prova
             $table->index(['certification_id', 'is_active']);
@@ -23,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('exam_templates', function (Blueprint $table) {
+        Schema::table('exam_templates', function (Blueprint $table): void {
             $table->dropForeign(['certification_id']);
             $table->dropColumn(['certification_id', 'duration_minutes']);
         });

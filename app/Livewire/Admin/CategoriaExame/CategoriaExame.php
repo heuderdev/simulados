@@ -45,7 +45,7 @@ class CategoriaExame extends Component
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255', function ($attribute, $value, $fail) {
+            'name' => ['required', 'string', 'max:255', function ($attribute, $value, $fail): void {
                 $slug = Str::slug($value);
                 if (ExamCategory::where('slug', $slug)->exists()) {
                     $fail('Este nome já está em uso. Por favor, escolha outro.');
@@ -58,18 +58,18 @@ class CategoriaExame extends Component
     }
 
 
-    public function updatedSearch()
+    public function updatedSearch(): void
     {
         $this->resetPage();
     }
 
-    public function updatedPerPage()
+    public function updatedPerPage(): void
     {
         $this->resetPage();
     }
 
 
-    public function sortBy($column)
+    public function sortBy($column): void
     {
         if ($this->orderBy === $column) {
             $this->orderDirection = $this->orderDirection === 'asc' ? 'desc' : 'asc';
@@ -81,7 +81,7 @@ class CategoriaExame extends Component
     }
 
 
-    public function getCategoriasProperty()
+    public function getCategoriasProperty(): \Illuminate\Pagination\LengthAwarePaginator
     {
         return ExamCategoryModelService::getPaginated(
             $this->search,
@@ -93,7 +93,7 @@ class CategoriaExame extends Component
 
 
 
-    public function saved()
+    public function saved(): void
     {
         $this->validate();
 

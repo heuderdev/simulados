@@ -5,7 +5,7 @@ namespace App\Services;
 
 class MenuService
 {
-    public static function itens()
+    public static function itens(): array
     {
         return [
             [

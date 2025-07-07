@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('learning_modules', function (Blueprint $table) {
+        Schema::table('learning_modules', function (Blueprint $table): void {
             $table->foreignId('certification_id')->after('id')->constrained()->onDelete('cascade');
             $table->index(['certification_id', 'is_active']);
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('learning_modules', function (Blueprint $table) {
+        Schema::table('learning_modules', function (Blueprint $table): void {
             $table->dropForeign(['certification_id']);
             $table->dropColumn('certification_id');
         });

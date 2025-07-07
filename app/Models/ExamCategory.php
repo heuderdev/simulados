@@ -55,7 +55,7 @@ class ExamCategory extends Model
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function ($model): void {
             if (empty($model->slug)) {
                 $model->slug = Str::slug($model->name);
             }
@@ -87,7 +87,7 @@ class ExamCategory extends Model
     protected function createdAt(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s')
+            get: fn (string $value): string => \Carbon\Carbon::parse($value)->format('d/m/Y H:i:s')
         );
     }
 }

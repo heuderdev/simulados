@@ -11,9 +11,8 @@ trait WithCustomAlert
      *
      * @param string $title O título do alerta.
      * @param string $text A mensagem de texto do alerta.
-     * @return void
      */
-    public function showSuccessAlert(string $title = 'Operação Concluída', string $text = 'Os dados foram salvos com sucesso no banco de dados.')
+    public function showSuccessAlert(string $title = 'Operação Concluída', string $text = 'Os dados foram salvos com sucesso no banco de dados.'): void
     {
         LivewireAlert::title($title)
             ->text($text)
@@ -43,9 +42,8 @@ trait WithCustomAlert
      *
      * @param string $title O título do alerta.
      * @param string $text A mensagem de texto do alerta.
-     * @return void
      */
-    public function showErrorAlert(string $title = 'Erro!', string $text = 'Ocorreu um erro ao processar sua solicitação.')
+    public function showErrorAlert(string $title = 'Erro!', string $text = 'Ocorreu um erro ao processar sua solicitação.'): void
     {
         LivewireAlert::title($title)
             ->text($text)

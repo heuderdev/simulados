@@ -10,7 +10,7 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('user_exams', function (Blueprint $table) {
+        Schema::create('user_exams', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('exam_template_id')->constrained();
